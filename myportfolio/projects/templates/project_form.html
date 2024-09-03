@@ -1,0 +1,17 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create/Update Project</title>
+    <link rel="stylesheet" href="{% static 'projects/static/style.css' %}">
+</head>
+<body>
+    <h1>{{ form.instance.pk|yesno:"Update,Create" }} Project</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'project_list' %}">Cancel</a>
+</body>
+</html>

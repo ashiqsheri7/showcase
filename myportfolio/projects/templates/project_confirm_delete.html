@@ -1,0 +1,16 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Project</title>
+    <link rel="stylesheet" href="{% static 'projects/static/style.css' %}">
+</head>
+<body>
+    <h1>Are you sure you want to delete "{{ project.name }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'project_list' %}">Cancel</a>
+</body>
+</html>
